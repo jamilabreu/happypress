@@ -1,5 +1,6 @@
 jQuery ->
-	pusher = new Pusher("1023af61b2f6ec874e78")
+	key = $('meta[name="pusher-key"]').attr('content')
+	pusher = new Pusher(key)
 	channel = pusher.subscribe("global_channel")
 	channel.bind "update_conversations", (data) ->
 		item = $(".item#" + data.id)

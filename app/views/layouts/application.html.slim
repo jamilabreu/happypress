@@ -10,6 +10,7 @@ html
 		== yield :stylesheet
 		= javascript_include_tag '//use.typekit.com/ier1ulg.js', "//js.pusher.com/2.2/pusher.min.js"
 		= javascript_tag 'try{Typekit.load()}catch(e){}'
+		= tag :meta, name: "pusher-key", content: ENV["pusher_key"]
 		= csrf_meta_tags
 	body
 		.header

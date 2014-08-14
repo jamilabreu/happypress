@@ -63,7 +63,10 @@ class UpdateWorker
                         created_at: post_created_at
                       )
 
-                      Pusher.trigger('global_channel', 'update_conversations', {id: @conversation.id.to_s, title: @conversation.title, count: @conversation.responses.to_s, url: @conversation.url, timeago: @conversation.updated_at.to_time.iso8601}) if pusher
+                      if pusher
+                        Pusher.trigger('global_channel', 'update_conversations', {id: @conversation.id.to_s, title: @conversation.title, count: @conversation.responses.to_s, url: @conversation.url, timeago: @conversation.updated_at.to_time.iso8601})
+                        puts "Push sent!"
+                      end
                     end
                   end
                 end
