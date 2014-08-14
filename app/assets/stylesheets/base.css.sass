@@ -1,0 +1,70 @@
+@import bourbon
+@import octicons
+@import font-awesome
+
+// VARIABLES
+$sans-serif: "proxima-nova", "Helvetica Neue", sans-serif
+$brandon-grotesque: "brandon-grotesque", $sans-serif
+
+$border-radius: 3px
+$rhythm: 16px
+
+$black: #333
+$blue: #01579B
+$green: #47970E
+$orange: #F1831E
+$red: #EB001B
+
+body
+	color: $black
+	font-family: $sans-serif
+	-webkit-font-smoothing: antialiased
+
+a
+	color: $blue
+	text-decoration: none
+
+img
+	display: block
+
+li
+	list-style: none
+
+ul
+	margin: 0
+	padding: 0
+
+abbr[title]
+	border: none
+
+// MIXINS
+@mixin clearfix
+	&:after
+		content: ""
+		display: table
+		clear: both
+
+@mixin ellipsis
+	overflow: hidden
+	text-overflow: ellipsis
+	white-space: nowrap
+
+@mixin button($color, $shadow-length: 3px)
+	background: $color
+	color: white
+	font-family: $brandon-grotesque
+	font-size: 20px
+	font-weight: 300
+	letter-spacing: 1px
+	line-height: $rhythm * 2
+	padding: 0 $rhythm 2px
+
+@mixin placeholder($color)
+	&::-webkit-input-placeholder
+		color: $color
+	&:-moz-placeholder
+		color: $color
+	&::-moz-placeholder
+		color: $color
+	&:-ms-input-placeholder
+		color: $color

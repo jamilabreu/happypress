@@ -1,0 +1,15 @@
+.leaderboard
+	.container
+		.leaderboard-column
+			.leaderboard-title Posts
+			.leaderboard-subtitle
+				= Post.all.length
+			= render partial: "users/leaderboard_user", collection: @by_posts, as: :user, locals: { field: :posts }
+		.leaderboard-column
+			.leaderboard-title Conversations
+			.leaderboard-subtitle= Conversation.all.length
+			= render partial: "users/leaderboard_user", collection: @by_conversations, as: :user, locals: { field: :conversations }
+		.leaderboard-column
+			.leaderboard-title PPC
+			.leaderboard-subtitle= (Post.all.length.to_f / Conversation.all.length).round(2)
+			= render partial: "users/leaderboard_user", collection: @by_ppc, as: :user, locals: { field: :ppc }

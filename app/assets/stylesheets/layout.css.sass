@@ -1,0 +1,352 @@
+@import base
+
+// GLOBAL
+.notice
+	background: tint($green, 80%)
+	border: 1px solid tint($green, 60%)
+	color: $green
+	font-weight: 600
+	margin-bottom: 16px
+	padding: 8px 12px
+	text-align: center
+	span
+		float: right
+		position: relative
+		top: -6px
+
+.pending-notification
+	@include linear-gradient(tint($green, 90%), tint($green, 80%))
+	border: 1px solid tint($green, 60%)
+	display: none
+	text-align: center
+	a
+		color: $green
+		display: block
+		font-weight: 600
+		padding: 16px 0
+		span.octicon
+			color: tint($green, 40%)
+			margin: 0 16px
+		span.number
+			margin-right: 5px
+
+// GRID
+.container
+	@include clearfix
+
+.left-column
+	float: left
+	width: 25%
+
+.middle-column
+	float: left
+	width: 50%
+
+.right-column
+	float: left
+	width: 25%
+
+.leaderboard-column
+	@include box-sizing(border-box)
+	float: left
+	padding: 0 16px
+	width: 33.333%
+	&:first-child
+		padding-left: 32px
+	&:last-child
+		padding-right: 32px
+
+// HEADER
+.header
+	background: #222
+	font-weight: 600
+	line-height: 32px
+	padding: 0 16px
+	a
+		color: white
+	.logo
+		background: url("http://s.wordpress.com/wp-content/mu-plugins/admin-bar/wpcom-admin-bar-icons.png?11")
+		height: 32px
+		width: 23px
+		background-size: 22px 900px
+		background-position: 0px -36px
+		display: inline-block
+		float: left
+	.text
+		display: inline-block
+		padding-left: 8px
+		span
+			font-weight: 100
+	.actions
+		display: inline-block
+		float: right
+		a
+			color: #999
+			&:hover
+				color: white
+
+// ITEM
+.item
+	a
+		@include linear-gradient(#FBFBFB, whiteSmoke)
+		border-bottom: 1px solid #DDD
+		border-right: 1px solid #DDD
+		display: block
+		padding: 16px 16px 16px 0
+	&.he
+		a
+			box-shadow: inset -2px 0 0 $orange
+	&.active
+		a
+			background: white
+			border-right: none
+			box-shadow: 0 4px 4px -5px rgba(0,0,0,0.2), 0 -4px 4px -5px rgba(0,0,0,0.2)
+			position: relative
+			.item-count
+				span
+					background: tint($blue, 20%) !important
+	&.unanswered
+		a
+			.item-count
+				span
+					background: $green
+	&.new
+		a
+			.item-count
+				span
+					background: $orange
+
+.item-count
+	display: table-cell
+	text-align: center
+	vertical-align: middle
+	span
+		@include linear-gradient(#CCC, tint(#CCC, 20%))
+		border-radius: 0 100px 100px 0
+		color: white
+		display: inline-block
+		font-size: 18px
+		font-weight: 600
+		padding: 4px 0
+		width: 40px
+
+.item-title
+	display: table-cell
+	padding-left: 15px
+	vertical-align: middle
+
+.item-timeago
+	color: #999
+	font-size: 12px
+
+// PAGINATION
+nav.pagination
+	text-align: center
+
+.pagination .next a
+	background: tint($green, 80%)
+	border: 1px solid tint($green, 60%)
+	border-radius: 0 0 3px 0
+	border-top: none
+	color: $green
+	display: block
+	font-weight: 600
+	margin-bottom: 16px
+	padding: 16px
+	span
+		color: tint($green, 50%)
+		margin: 0 16px
+
+// CONVERSATION
+.conversation
+	padding: 0 48px
+
+.conversation-title
+	font-size: 32px
+	line-height: 32px
+	margin: 32px 0
+	a
+		color: #CCC
+		float: right
+		margin-left: 16px
+
+.conversation-post
+	margin-bottom: 16px
+	&.he
+		.post-user
+			box-shadow: 0 -1px 0 $orange
+		.post-user-title
+			a
+				color: $orange
+
+.post
+	padding: 16px 6px
+	p:first-child
+		margin-top: 0
+	p:last-child
+		margin-bottom: 0
+	pre
+		border: 1px solid #EAEAEA
+		padding: 16px
+
+.post-user
+	@include linear-gradient(#FBFBFB, white)
+	box-shadow: 0 -1px 0 whiteSmoke
+
+.post-user-image
+	background: black
+	display: table-cell
+	vertical-align: middle
+	img
+		height: 32px
+
+.post-username
+	display: table-cell
+	padding-left: 10px
+	vertical-align: middle
+
+.post-user-details
+	display: table-cell
+	float: right
+	font-size: 11px
+	padding: 10px 16px 0 0
+	vertical-align: middle
+	a
+		color: #999
+	span
+		color: #CCC
+		margin: 0 8px
+
+.post-created-at
+	display: inline-block
+
+.post-user-title
+	display: inline-block
+
+// NEW POST
+form
+	textarea
+		border: 1px solid #CFCFCF
+		box-sizing: border-box
+		display: block
+		outline: none
+		resize: none
+		width: 100%
+
+form.new_post
+	.legend
+		margin-bottom: 8px
+		a
+			color: #AAA
+			margin-right: 8px
+	textarea
+		box-shadow: inset 0 0 10px 1px rgba(0,0,0,0.05)
+		min-height: 108px
+		padding: 16px
+	input
+		margin-top: 10px
+
+// SEARCH COLUMN
+.search-column
+	padding: 24px 16px
+
+form.search
+	margin-bottom: 24px
+	text-align: right
+	textarea
+		padding: 8px
+	input
+		margin-top: 8px
+
+.search-title
+	border-bottom: 1px solid #EEE
+	color: #999
+	font-size: 14px
+	font-weight: 600
+	margin-bottom: 16px
+
+.search-result
+	margin-bottom: 16px
+
+.search-result-clippy
+	float: left
+	a
+		color: #CCC
+		display: block
+		span
+			display: block
+	&:hover
+		cursor: pointer
+
+.search-result-main
+	margin-left: 24px
+
+.search-result-summary
+	color: #999
+	max-height: 48px
+	overflow: hidden
+	font-size: 12px
+
+// LEADERBOARD
+.leaderboard
+	background: #FBFBFB
+	padding-top: 32px
+	text-align: center
+
+.leaderboard-title
+	font-size: 32px
+	font-weight: 100
+	margin-bottom: 5px
+
+.leaderboard-subtitle
+	color: #999
+	font-size: 14px
+	font-weight: 600
+	margin-bottom: 20px
+
+.leaderboard-user
+	@include clearfix
+	background: white
+	border: 1px solid #EAEAEA
+	border-radius: 3px
+	box-shadow: 0 0 10px 1px rgba(0,0,0,0.033)
+	margin: 0 auto 16px
+	padding: 16px
+	&.el
+		border-color: $orange
+
+.leaderboard-user-image
+	display: table-cell
+
+.leaderboard-username
+	display: table-cell
+	text-align: left
+	padding-left: 15px
+	vertical-align: middle
+	// width: 66.66%
+	div
+		color: #999
+		font-size: 14px
+
+.leaderboard-user.el
+	.leaderboard-username
+		div
+			color: $orange
+	.leaderboard-count
+		background: $orange
+		box-shadow: inset 0 0 0 1px $orange, inset 0 0 0 2px tint($orange, 33%)
+
+.leaderboard-count
+	background: $blue
+	border-radius: 3px
+	box-shadow: inset 0 0 0 1px $blue, inset 0 0 0 2px tint($blue, 33%)
+	color: white
+	display: table-cell
+	float: right
+	font-weight: 700
+	height: 48px
+	vertical-align: middle
+	width: 48px
+	span
+		display: block
+		margin-top: 14px

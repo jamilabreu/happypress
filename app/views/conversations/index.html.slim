@@ -1,0 +1,10 @@
+- content_for :javascript do
+	= javascript_include_tag 'plugins/timeago', 'conversations/index'
+
+.container
+	.left-column
+		.new-post-area
+		= render partial: "item", collection: @feed, as: :conversation
+		= paginate @feed, remote: true
+	section
+		= render @conversation

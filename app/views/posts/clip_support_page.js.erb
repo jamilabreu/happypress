@@ -1,0 +1,5 @@
+var textarea = $('textarea#body')
+var current_text = textarea.val()
+var new_text = current_text + "Hi! Here's a potentially useful link:\n\n<%= @url %>"
+
+textarea.val(new_text)

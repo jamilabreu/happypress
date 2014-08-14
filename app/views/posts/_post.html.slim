@@ -1,0 +1,16 @@
+.conversation-post class=('he' if post.user.title == "Happiness Engineer")
+	.post-user
+		.post-user-details
+			.post-user-title
+				= link_to post.user.title, post.user.profile_url, target: "_blank"
+			span
+				| //
+			.post-created-at
+				= link_to post.created_at.localtime.strftime("%b %e, %Y, %l:%M %p"), post.url, target: "_blank"
+		.post-user-image
+			= image_tag(post.user.image)
+		.post-username
+			= link_to post.user.username, post.user.blog_url, target: "_blank"
+	.post-body
+		= post.body.html_safe
+

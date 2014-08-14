@@ -1,0 +1,2 @@
+$('nav.pagination').before('<%= j render partial: "item", collection: @feed, as: :conversation %>');
+$('.pagination .next a').attr('href', '/conversations?page=<%= params[:page].to_i + 1 %>/');

@@ -1,0 +1,5 @@
+var textarea = $('textarea#body')
+var current_text = textarea.val()
+var new_text = current_text + "<<%= @tag %>></<%= @tag %>>"
+
+textarea.val(new_text)

@@ -1,0 +1,5 @@
+$("section").html("<%= j render @conversation %>");
+$(".post a").attr("target", "_blank");
+$(".item.active").toggleClass('active');
+$("#<%= @conversation.id %>").toggleClass('active').removeClass('new');
+$("textarea").expanding();

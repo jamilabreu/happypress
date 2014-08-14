@@ -1,0 +1,8 @@
+.item id=(conversation.id) class=(item_class(conversation))
+	= link_to conversation, remote: true do
+		.item-count
+			span= conversation.responses
+		.item-title
+			= conversation.title
+			.item-timeago
+				abbr.timeago title=(conversation.updated_at.to_time.iso8601)

@@ -1,0 +1,28 @@
+.search-column
+	= form_tag search_path(conversation), method: "get", class: "search", remote: true do
+		= text_area_tag :q, nil, rows: 1
+		= submit_tag "Search"
+
+	- conversation.support_pages(search_query(conversation)).each do |page|
+		.search-result
+			- if page
+				.search-result-clippy
+					= link_to clip_support_page_path(url: page.search("a @href").to_s), remote: true do
+						span.octicon.octicon-clippy
+				.search-result-main
+					= link_to page.search("a @href").to_s, target: "_blank" do
+						= page.search("a").text
+						.search-result-summary
+							= page.search("div").text
+	/ .search-title FORUM
+	/ - conversation.forum_pages(search_query(conversation)).each do |page|
+	/ 	.search-result
+	/ 		- if page
+	/ 			.search-result-clippy
+	/ 				= link_to clip_support_page_path(url: page.search("a @href").to_s), remote: true do
+	/ 					span.octicon.octicon-clippy
+	/ 			.search-result-main
+	/ 				= link_to page.search("a @href").to_s, target: "_blank" do
+	/ 					= page.search("a").text
+	/ 					.search-result-summary
+	/ 						= page.search("p").text

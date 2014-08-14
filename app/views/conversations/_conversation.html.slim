@@ -1,0 +1,18 @@
+.middle-column
+	.conversation
+		.conversation-title
+			= link_to conversation.url, target: "_blank" do
+				span.mega-octicon.octicon-link-external
+			= conversation.title
+		.conversation-posts
+			= render conversation.posts
+		.conversation-form
+			= form_tag create_post_path(conversation), method: "get", class: "new_post", remote: true do
+				.legend
+					- %w( a blockquote code em strong ul ol li ).each do |tag|
+						= link_to clip_tag_path(tag: tag), remote: true do
+							= tag
+				= text_area_tag :body, nil, class: 'expanding', rows: 1
+				= submit_tag "Search"
+.right-column
+	= render partial: "conversations/right_column", locals: { conversation: conversation }

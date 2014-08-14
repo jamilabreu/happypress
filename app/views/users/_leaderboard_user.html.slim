@@ -1,0 +1,15 @@
+.leaderboard-user class=(user.title == "Member" ? nil : 'el')
+	.leaderboard-count
+		span
+			- if field == :posts
+				= user.posts.length
+			- elsif field == :conversations
+				= user.conversations.length
+			- elsif field == :ppc
+				= user.ppc.round(2)
+	.leaderboard-user-image
+		= image_tag user.image
+	.leaderboard-username
+		= user.username
+		div
+			= user.title
